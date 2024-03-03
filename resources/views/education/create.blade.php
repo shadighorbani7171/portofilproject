@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Degrees') }}
+            {{ __('Education create') }}
         </h2>
 
     </x-slot>
@@ -14,20 +14,21 @@
         @csrf
        
         <div>
+            <x-input-label for="institutions" :value="__('institutions')" />
+            <x-text-input id="institutions" name="institutions" type="text" class="mt-1 block w-full" :value="old('institutions', $user->institutions)"  autofocus autocomplete="institutions" />
+            <x-input-error class="mt-2" :messages="$errors->get('institutions')" />
+        </div>
+        <div>
             <x-input-label for="section" :value="__('section')" />
-            <x-text-input id="section" name="section" type="text" class="mt-1 block w-full" value="{{$degrees->section}}"  autofocus autocomplete="section" />
+            <x-text-input id="section" name="section" type="text" class="mt-1 block w-full" :value="old('section', $user->section)  autofocus autocomplete="section" />
             <x-input-error class="mt-2" :messages="$errors->get('section')" />
         </div>
         <div>
             <x-input-label for="year" :value="__('Year')" />
-            <x-text-input id="year" name="year" type="text" class="mt-1 block w-full" value="{{$degrees->year}}" autofocus autocomplete="year" />
+            <x-text-input id="year" name="year" type="text" class="mt-1 block w-full"  autofocus autocomplete="year" />
             <x-input-error class="mt-2" :messages="$errors->get('year')" />
         </div>
-        <div>
-            <x-input-label for="institutions" :value="__('Institutions')" />
-            <x-text-input id="institutions" name="institutions" type="text" class="mt-1 block w-full" value="{{$degrees->institutions}}"  autofocus autocomplete="institutions" />
-            <x-input-error class="mt-2" :messages="$errors->get('institutions')" />
-        </div>
+       
         
             
              

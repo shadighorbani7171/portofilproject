@@ -1,8 +1,8 @@
-@extends("layouts.main")
+ @extends("layouts.main")
 
 @section('content')
 <div class="flex flex-col items-start  gap-16 relative max-w-full h-947 bg-white">
-  <!-- Header -->
+   <!-- Header -->
   <div class="flex flex-col items-start ml-14 h-100">
     <!-- Info -->
     <div class="flex items-center    h-80">
@@ -53,23 +53,27 @@
   <div class="flex flex-col mr-20 ml-14 items-start mt-20 gap-4 max-w-2xl h-420">
    
     <div class=" color tracking-widest  uppercase  w-74 h-12 text-10 leading-12 font-normal">Experience</div>
-           @foreach($roles as $role)
-      <div  >
+         
+      <div >
+         
+             @foreach($user->experiences as $experience)  
         <div class="flex items-center leading-3 mb-10  gap-20  h-0  w-172">
-              <span class=" text  font-spectral italic text-xl font-semibold  whitespace-nowrap" >{{$role->title}}</span> 
+              <span class=" text  font-spectral italic text-xl font-semibold  whitespace-nowrap" >{{$experience->title}} </span> 
               <div class="flex items-center ">
               <div class="w-5 bg-no-repeat"> <img  src="storage/vectors/NP17hpw2FvLLNC4cpJ5J6y9yPO2NywIgAHJvGNzQ.jpg" alt=""></div>
-              <span class=" text-sm tracking-tighter text-gray-400 font-extralight whitespace-nowrap"  >{{$role->company}}</span>
+              <span class=" text-sm tracking-tighter text-gray-400 font-extralight whitespace-nowrap"  >{{$experience->company}}</span>
               </div>
               <div class="flex items-center ml-20 ">
               <div class="w-5 bg-no-repeat"> <img src="/storage/vectors/S2TzpkftVtF8gUHMFSmJ2LJ905bpMiASMyz1ZIaP.jpg" alt=""></div>
-              <span  class="  text-sm tracking-tighter text-gray-400 font-extralight whitespace-nowrap" > {{$role->year}}</span>
+              <span  class="  text-sm tracking-tighter text-gray-400 font-extralight whitespace-nowrap" >{{$experience->year}} </span>
               </div>
+           
         </div>
+           
         
            
               <div class="content tracking-tighter text-sm list-item space-y-2">
-                 {!!$role->content!!} 
+                     {!!$experience->content!!} 
                    </div>
             
              
@@ -77,12 +81,13 @@
         
         <div>
         <p class="tracking-tighter text-sm mr-80">
-            {{$role->summary}}
+           {{$experience->summary}}
         </div>
       </div>
       <div class="border-t border-gray-200 w-full"></div>
+      @endforeach
 
-             @endforeach
+            
 
             
 
@@ -95,7 +100,8 @@
       </div>
             
         <div class="mb-4  ">
-        @foreach($skills as $skill)
+          @foreach($user->skills as $skill)
+      
            <div class="space-16 mb-4 leading-4 ">
            <h3 class=" text  text-xl font-normal  font-spectral italic mb-1">{{$skill->name}}</h3>
             <p class="text-sm text-gray-600">{{$skill->tools}}</p>
@@ -112,35 +118,24 @@
       <div>
         <h2 class=" color tracking-widest  uppercase  mb-5 " >education</h2>
       </div>
+      @foreach($user->degrees as $degree)
         <div class="mb-4">
-               @foreach($degrees as $degree)
+           
             <h3 class=" text  text-xl font-normal  font-spectral italic mb-1">{{$degree->section}}</h3>
             
-            <div class="flex items-center  mb-10  gap-10  h-0  w-500">
+            <div class="flex items-center  mb-10 mr-40 gap-10  h-0  w-500">
             <div class="flex items-center mt-2  ">
               <div class="w-7 bg-no-repeat"> <img src="storage/vectors/rkdpDXVcVxyFUmTSBzGRr1LqlJcV1MArICuYZGzb.jpg" alt=""></div>
               <span class=" text-sm tracking-tighter text-gray-400 font-extralight whitespace-nowrap"  >{{$degree->institutions}}</span>
               </div>
               <div class="flex items-center mt-2 ">
               <div class="w-5 bg-no-repeat"> <img src="/storage/vectors/S2TzpkftVtF8gUHMFSmJ2LJ905bpMiASMyz1ZIaP.jpg" alt=""></div>
-              <span  class="  text-sm tracking-tighter text-gray-400 font-extralightwhitespace-nowrap" > {{$degree->year}}</span>
-              <br/>
-              <hr/>
-              <div class="border-t w-full  border-gray-400 "></div>
+              <span  class="  text-sm tracking-tighter text-gray-400 font-extralightwhitespace-nowrap" >{{$degree->year}} </span>
               </div>
-              
-
-
-        </div>
-              @endforeach
+        @endforeach
+             
         </div>
        
     </div>
 </div>
-<style>
- 
- 
-</style>
-
-
-@endsection('content')
+       @endsection

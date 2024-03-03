@@ -2,11 +2,13 @@
     <x-slot name="header">
       <div class="flex justify-between self-center"> 
          <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('skills update') }}
+            {{ __('skills create') }}
         </h2>
        
        </div>
     </x-slot>
+    
+
     <div class="py-12">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -16,19 +18,15 @@
        
         <div>
             <x-input-label for="name" :value="__('name')" />
-            
-            <x-text-input id="name" name="name" value="{{$skills->name}}" type="text" class="mt-1 block w-full"  autofocus autocomplete="name" />
-            
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" autofocus autocomplete="name" />
+            <x-input-error class="mt-2" :messages="$errors->get('title')" />
         </div>
         <div>
             <x-input-label for="tools" :value="__('tools')" />
-            
-            <x-text-input id="tools" name="tools" value="{{$skills->tools}}" type="text" class="mt-1 block w-full"  autofocus autocomplete="tools" />
-            
+            <x-text-input id="tools" name="tools" type="text" class="mt-1 block w-full" :value="old('tools', $user->tools)" autofocus autocomplete="tools" />
             <x-input-error class="mt-2" :messages="$errors->get('tools')" />
         </div>
-        
+       
           <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
         </div>
@@ -38,4 +36,4 @@
             </div>
         </div>
     </div>
-    </x-app-layout>
+</x-app-layout>

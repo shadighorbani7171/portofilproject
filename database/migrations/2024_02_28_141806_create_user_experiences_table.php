@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('degrees', function (Blueprint $table) {
+        Schema::create('user_experiences', function (Blueprint $table) {
             $table->id();
-            $table->string('section');
-            $table->string('institutions');
-            $table->year('year');
+            $table->integer('User_id');
+            $table->string('title');
+            $table->string('company');
+            $table->string('year');
+            $table->longText('content');
+            $table->longText('summary');
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('degrees');
+        Schema::dropIfExists('user_experiences');
     }
 };

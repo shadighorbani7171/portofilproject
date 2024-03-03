@@ -21,12 +21,14 @@
                     <x-nav-link :href="route('experience')" :active="request()->routeIs('experience')">
                         {{ __('Experience') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('skills')" :active="request()->routeIs('skills')">
+                    <x-nav-link :href="route('skills.list')" :active="request()->routeIs('skills.list')">
                         {{ __('Skills') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('education')" :active="request()->routeIs('education')">
-                        {{ __('Degrees') }}
+                    <x-nav-link :href="route('education.list')" :active="request()->routeIs('education.list')">
+                        {{ __('Education') }}
                     </x-nav-link>
+                   
+                   
                    
                   
                 </div>

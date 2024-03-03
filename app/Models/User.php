@@ -46,4 +46,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-}
+    public function experiences(){
+        return $this->hasMany(UserExperience::class);
+    }
+    public function skills(){
+        return $this->hasMany(UserSkill::class);
+    }
+    public function degrees(){
+        return $this->hasMany(UserDegree::class);
+    }
+  
+   
+    }
+
+
+   
+
+
