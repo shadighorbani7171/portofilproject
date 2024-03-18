@@ -37,7 +37,7 @@
             @foreach ($experiences as $experience)
             <tr class="border-b border-gray-200 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-black whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                    {{$loop->index+1}}         
+                    {{$loop->index + $experiences->firstitem()}}         
                 </th>
                 <td class="px-6 py-4">
                     {{$experience->title}}    
@@ -53,10 +53,15 @@
                                     <a href="{{route('experience.destroy',['id'=>$experience->id])}}" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Delete</a>
                                     </td>         
             </tr>
+           
             @endforeach
            
         </tbody>
+       
     </table>
+    <div>
+    {!! $experiences->links() !!}
+    </div>
 </div>
 
     </x-app-layout>

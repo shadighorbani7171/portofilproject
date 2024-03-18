@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\createorupdateExperienceRequest;
 use App\Models\UserExperience;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ExperienceController extends Controller
 {
@@ -15,7 +16,11 @@ class ExperienceController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $experiences = $user->experiences;              
+        $experiences = UserExperience::where('user_id', auth()->user()->id)->paginate(2);
+        
+      
+
+
         return view('experience.list',['experiences'=>$experiences]);
 
     }
@@ -34,8 +39,7 @@ class ExperienceController extends Controller
     public function store(createorupdateExperienceRequest $request)
     {
       $experiences = new UserExperience;
-      $experiences->user_id = auth()->user()->id;
-      $experiences->title = $request->title;
+       $experiences->title = $request->title;
       $experiences->company = $request->company;
       $experiences->content = $request->content;
       $experiences->year = $request->year;
@@ -88,4 +92,5 @@ class ExperienceController extends Controller
         $experiences->delete();
         return redirect()->route('experience'); 
     }
+
 }

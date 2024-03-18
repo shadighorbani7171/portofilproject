@@ -18,17 +18,17 @@
        
         <div>
             <x-input-label for="title" :value="__('Title')" />
-            <x-text-input id="title" name="title" type="text" class="mt-1 block w-full" :value="old('title', $user->title)"  autofocus autocomplete="title" />
+            <x-text-input id="title" name="title" type="text" class="mt-1 block w-full" :value="old('title')"  autofocus autocomplete="title" />
             <x-input-error class="mt-2" :messages="$errors->get('title')" />
         </div>
         <div>
             <x-input-label for="company" :value="__('Company')" />
-            <x-text-input id="company" name="company" type="text" class="mt-1 block w-full" :value="old('company', $user->company)"  autofocus autocomplete="company" />
+            <x-text-input id="company" name="company" type="text" class="mt-1 block w-full" :value="old('company')"  autofocus autocomplete="company" />
             <x-input-error class="mt-2" :messages="$errors->get('company')" />
         </div>
         <div>
             <x-input-label for="title" :value="__('Year')" />
-            <x-text-input id="year" name="year" type="text" class="mt-1 block w-full" :value="old('year', $user->year)"  autofocus autocomplete="year" />
+            <x-text-input id="year" name="year" type="text" class="mt-1 block w-full" :value="old('year')"  autofocus autocomplete="year" />
             <x-input-error class="mt-2" :messages="$errors->get('year')" />
         </div>
         
@@ -42,7 +42,7 @@
      
        <div>
             <x-input-label for="summary" :value="__('summary')" />
-            <textarea name="summary" id="summary" :value="old('summary', $user->summary)" class= 'w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm' >
+            <textarea name="summary" id="summary" :value="old('summary')" class= 'w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm' >
                       
             </textarea>
             <x-input-error class="mt-2" :messages="$errors->get('summary')" />

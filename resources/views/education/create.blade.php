@@ -15,12 +15,12 @@
        
         <div>
             <x-input-label for="institutions" :value="__('institutions')" />
-            <x-text-input id="institutions" name="institutions" type="text" class="mt-1 block w-full" :value="old('institutions', $user->institutions)"  autofocus autocomplete="institutions" />
+            <x-text-input id="institutions" name="institutions" type="text" class="mt-1 block w-full" :value="old('institutions')"  autofocus autocomplete="institutions" />
             <x-input-error class="mt-2" :messages="$errors->get('institutions')" />
         </div>
         <div>
             <x-input-label for="section" :value="__('section')" />
-            <x-text-input id="section" name="section" type="text" class="mt-1 block w-full" :value="old('section', $user->section)  autofocus autocomplete="section" />
+            <x-text-input id="section" name="section" type="text" class="mt-1 block w-full" :value="old('section')"  autofocus autocomplete="section" />
             <x-input-error class="mt-2" :messages="$errors->get('section')" />
         </div>
         <div>

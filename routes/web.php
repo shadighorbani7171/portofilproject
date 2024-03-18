@@ -3,6 +3,8 @@
 use App\Http\Controllers\BioController;
 
 use App\Http\Controllers\DegreeController;
+use App\Http\Controllers\EmailController;
+use App\Http\Controllers\EmailverifyController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\PortofilController;
 use App\Http\Controllers\ProfileController;
@@ -12,6 +14,10 @@ use App\Http\Controllers\UserexperienceControoler;
 
 use App\Http\Controllers\VectorController;
 
+use App\Mail\Usermail;
+use App\Models\User;
+use App\Observers\UserObserver;
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +34,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+    
+  
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -69,5 +78,10 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+  //email user
+Route::get('/email',[EmailverifyController::class,'index'])->name('email');
+Route::get('/verification/{token}',[EmailverifyController::class,'verify'])->name('email.verify');
+
 
 Route::get('{email}',[PortofilController::class,'index'])->name('portofil');
